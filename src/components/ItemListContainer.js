@@ -1,3 +1,14 @@
+
+const ITEMS = [{}]
+
+function productPromise() {
+    return new Promise ((resolve, reject) =>{
+        setTimeout(function(){
+            resolve(ITEMS)
+        },2000);
+    });
+}
+
 const ItemListContainer = (props) => {
     return(
         <div className="pt-5 itemListContainer">
