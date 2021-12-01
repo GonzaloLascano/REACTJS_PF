@@ -8,7 +8,7 @@ const ItemListCounter = (props) => {
     }
 
     function substractCount() {
-        amount > props.initial? setAmount(amount - 1): setAmount(amount-0);
+        (amount > 1) && setAmount(amount - 1);
     }
     function onAdd() {
         console.log("felicidades! agregaste " + amount + " producto/s a tu carrito");

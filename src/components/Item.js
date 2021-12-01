@@ -1,15 +1,15 @@
 const Item = (props) => {
     return (
-        <div class="card w-50 mb-3" key={props.id}>
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src={props.img} class="img-fluid rounded-start" alt={props.name}/>
+        <div className="card w-25 m-5" key={props.id}>
+        <div className="row align-items-center g-0">
+          <div className="col-md-4">
+            <img src={props.img} className="img-fluid rounded-start" alt={props.name}/>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{props.name}</h5>
-              <p class="card-text">{props.description}</p>
-              <p class="card-text"><small class="text-muted">{props.price}</small></p>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{props.name}</h5>
+              <p className="card-text">{props.description}</p>
+              <p className="card-text"><small className="text-muted"> precio: {props.price}</small></p>
             </div>
           </div>
         </div>

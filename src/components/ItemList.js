@@ -1,12 +1,11 @@
-import react from "react";
 import Item from "./Item";
 
 function ItemList ({items}) {
     
     return(
-        <div className="p3 d-flex justify-content-center">
+        <div className="p3 d-flex flex-md-row justify-content-center">
             {items.map((item)=>{
-                <item item key={item.id} nombre={item.name} img={item.img} description={item.description} price={item.price}/>
+                return (<Item key={item.id} name={item.name} img={item.img} description={item.description} price={item.price}/>);
             })}       
         </div>
     );
