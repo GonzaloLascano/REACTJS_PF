@@ -3,24 +3,24 @@ import ItemListCounter from "./ItemListCounter"
 
 function ItemDetail (props) {
     return(
-        <div class="container border shadow m-3 pb-3">
+        <div className="container text-start border shadow m-3 pb-3">
         
           {/* <!-- Portfolio Item Heading --> */}
-          <h1 class="my-4">Page Heading{props.name}
-            <small>Secondary Text{props.author}</small>
+          <h1 className="my-4">{props.name}
+            <small className="text-success text-opacity-50 mx-2">{props.author}</small>
           </h1>
         
           {/* <!-- Portfolio Item Row --> */}
-          <div class="row">
+          <div className="row">
         
-            <div class="col-md-8">
-              <img class="img-fluid" src="https://via.placeholder.com/750x500" alt={props.name}/>
+            <div className="col-md-8 d-flex justify-content-center">
+              <img className="img-fluid" src="https://via.placeholder.com/750x500" alt={props.name}/>
             </div>
         
-            <div class="col-md-4">
-              <h3 class="my-3">Project Description</h3>
-              <p>{props.description}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-              <h3 class="my-3">Project Details</h3>
+            <div className="col-md-4">
+              <h3 className="my-3">Descripción</h3>
+              <p>{props.description}</p>
+              <h3 className="my-3">Detalles de compra</h3>
               {/* <!-- contador de items! --> */}
               <ItemListCounter stock={props.stock} initial={props.initial} price={props.price}/>
               {/* <!-- /contador de items! --> */}
@@ -29,3 +29,5 @@ function ItemDetail (props) {
         </div>
     );
 }
+
+export default ItemDetail
