@@ -16,7 +16,7 @@ function DetailPromise(idReq) {
                 return element.id === idReq
             });
             itemRequested ? resolve(itemRequested) : reject(console.log("No se encontro el Articulo."));
-            },500);
+            },2000);
     });
 }
 
@@ -53,4 +53,10 @@ function ItemDetailContainer({itemId = 3}) {
     );
 }
 
+/* NOTAS ENTREGA 4/12/21: Acabo de terminar el desafio. Tratando de despejar algunas dudas: Siguiendo un poco la guia que hay en slack,
+react me tiraba error cuando ponia "null" como parametro en el useState y dejaba los brackets "[]" Antes del cierre de useEffect(). 
+No tengo del todo claro por que, despues de probar 20 cosas al sacar ambas cosas (reemplazar el null por brackets en useState y eliminando 
+los brackets en useEffect todo empezo a funcionar) */
+
 export default ItemDetailContainer
+
