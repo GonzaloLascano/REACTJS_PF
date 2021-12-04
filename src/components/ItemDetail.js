@@ -14,7 +14,7 @@ function ItemDetail (props) {
           <div className="row">
         
             <div className="col-md-8 d-flex justify-content-center">
-              <img className="img-fluid" src="https://via.placeholder.com/750x500" alt={props.name}/>
+              <img className="img-fluid" src={props.img} alt={props.name}/>
             </div>
         
             <div className="col-md-4">
