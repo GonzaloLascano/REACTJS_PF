@@ -7,14 +7,14 @@ function ItemDetail (props) {
         
           {/* <!-- Portfolio Item Heading --> */}
           <h1 className="my-4">{props.name}
-            <small className="text-success text-opacity-50 mx-2">{props.author}</small>
+            <small className="text-success text-opacity-50 mx-2"> por "{props.author}"</small>
           </h1>
         
           {/* <!-- Portfolio Item Row --> */}
           <div className="row">
         
             <div className="col-md-8 d-flex justify-content-center">
-              <img className="img-fluid" src={props.img} alt={props.name}/>
+              <img className="img-fluid h-100" src={props.img} alt={props.name}/>
             </div>
         
             <div className="col-md-4">

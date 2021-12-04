@@ -17,7 +17,7 @@ const ItemListCounter = (props) => {
         <div className="counterContainer w-100 mx-auto my-2 shadow">
         <div className="countInfo border bg-light mb-2 p-2">
             <p className="itemDescription h5">
-            Precio: ${props.price} - {props.stock} en stock.
+            Precio: {props.price} - {props.stock} en stock.
             </p>
             <div className="counterHandles d-flex justify-content-between border p-2 rounded-pill">
                 <button type="button" className="btn btn-success rounded-pill" onClick={substractCount}>-</button>
