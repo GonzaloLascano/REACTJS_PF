@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 const ItemListCounter = (props) => {
-    const [amount, setAmount] = useState(props.initial)
+    const [amount, setAmount] = useState(props.initial);
+
 
     function addCount() {
        amount < props.stock ? setAmount(amount + 1) : setAmount(amount + 0);
@@ -10,9 +11,7 @@ const ItemListCounter = (props) => {
     function substractCount() {
         (amount > 1) && setAmount(amount - 1);
     }
-    function onAdd() {
-        console.log("felicidades! agregaste " + amount + " producto/s a tu carrito");
-    }
+
     return (
         <div className="counterContainer w-100 mx-auto my-2 shadow">
         <div className="countInfo border bg-light mb-2 p-2">
@@ -25,7 +24,7 @@ const ItemListCounter = (props) => {
                 <button type="button" className="btn btn-success rounded-pill" onClick={addCount}>+</button>
             </div>
         </div>
-        <button type="button" className="btn btn-outline-success w-100" onClick={onAdd}>Agregar al Carrito</button>
+        <button type="button" className="btn btn-outline-success w-100" onClick={() => {props.onAdd(amount)}}>Agregar al Carrito</button> {/* no entiendo por que hay que poner una funcion aca en lugar de simplemente poner onAdd directamente.*/}
     </div>    
     );
 }
