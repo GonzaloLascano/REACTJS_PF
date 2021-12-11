@@ -13,6 +13,9 @@ function App() {
           <Route path="/" exact>
             <ItemListContainer greeting="Bienvenid@ a nuestra tienda!" />
           </Route>
+          <Route path="/category/:categoryId">
+            <ItemListContainer greeting="Categoría seleccionada" />
+          </Route>
           <Route path="/product/:id" exact>
             <ItemDetailContainer/>
           </Route>

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
+import { useParams } from "react-router";
 
 const STORED_ITEMS = [
     {id:1, name:"Rompiente", category:"Bastidor", img:"/assets/images/Rompiente.jpeg", description:"Acuarela sobre papel compuesta por trazos solidos en su mayoria", price:"$5000"}, 
@@ -9,11 +10,17 @@ const STORED_ITEMS = [
 
 ];
 
-function productPromise() {
+function productPromise(categoryId) {
     
     return new Promise ((resolve, reject) => {
+        let resolvedItems = [];
+
         setTimeout(function(){
-            resolve(STORED_ITEMS)
+            categoryId ?
+                resolvedItems = STORED_ITEMS.filter((product) => product.category === categoryId)
+                :
+                resolvedItems = [...STORED_ITEMS];
+            resolve(resolvedItems);
         },2000);
     });
 }
@@ -21,19 +28,20 @@ function productPromise() {
 function ItemListContainer() {
     
     const [items, setItems] = useState([]);
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        let loadItems = productPromise();
+        let loadItems = productPromise(categoryId);
         
-        loadItems.then( function(promise_result) {
-            setItems(promise_result);
+        loadItems.then(function(promise_result) { 
+            setItems(promise_result.filter( (item) ))
         })
         .finally(
             function() {
                 console.log("Promesa cumplida exitosamente.");
             }
         )
-    },[])
+    },[categoryId])
 
     return(
         <div className="pt-5 itemListContainer">

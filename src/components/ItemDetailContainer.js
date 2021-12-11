@@ -25,7 +25,7 @@ function DetailPromise(idReq) {
 
 function ItemDetailContainer() {
     const [item, setItem] = useState([]);
-    const { id } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
         let detailedItem = DetailPromise(Number(id));
