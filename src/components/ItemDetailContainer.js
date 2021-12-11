@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router";
 
 const STORED_ITEMS = [
     {id:1, name:"Rompiente", author:"Admigual", img:"/assets/images/Rompiente.jpeg", description:"Acuarela sobre papel compuesta por trazos solidos en su mayoria.", stock:4, initial:1, price:"$5000"}, 
@@ -22,11 +23,12 @@ function DetailPromise(idReq) {
 
 /* componente */
 
-function ItemDetailContainer({itemId = 3}) {
+function ItemDetailContainer() {
     const [item, setItem] = useState([]);
+    const { id } = useParams()
 
     useEffect(() => {
-        let detailedItem = DetailPromise(itemId);
+        let detailedItem = DetailPromise(Number(id));
 
         detailedItem
         .then(function (foundItem){
@@ -38,7 +40,7 @@ function ItemDetailContainer({itemId = 3}) {
         .finally(function() {
             console.log("promesa cumplida");
         });
-    },);
+    },[id]);
 
     return(
         <ItemDetail
@@ -59,4 +61,3 @@ No tengo del todo claro por que, despues de probar 20 cosas al sacar ambas cosas
 los brackets en useEffect todo empezo a funcionar) */
 
 export default ItemDetailContainer
-

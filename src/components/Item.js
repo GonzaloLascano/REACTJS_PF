@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Item = (props) => {
+    const pathItem = `/product/${props.id}`
+
     return (
         <div className="card w-25 m-5" key={props.id}>
         <div className="row align-items-center g-0">
@@ -10,6 +14,7 @@ const Item = (props) => {
               <h5 className="card-title">{props.name}</h5>
               <p className="card-text">{props.description}</p>
               <p className="card-text"><small className="text-muted"> precio: {props.price}</small></p>
+              <Link to={pathItem} >Ver detalle</Link>
             </div>
           </div>
         </div>

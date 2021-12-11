@@ -2,10 +2,11 @@ import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
 
 const STORED_ITEMS = [
-    {id:"1", name:"Rompiente", img:"/assets/images/Rompiente.jpeg", description:"Acuarela sobre papel compuesta por trazos solidos en su mayoria", price:"$5000"}, 
-    {id:"2", name:"Cuchara", img:"/assets/images/Cuchara.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$2000"},
-    {id:"3", name:"Camino Otoñal", img:"/assets/images/Camino_Otonial.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$6000"},
-    {id:"4", name:"Flores Indigo", img:"/assets/images/Flores_indigo.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$1000"}
+    {id:1, name:"Rompiente", category:"Bastidor", img:"/assets/images/Rompiente.jpeg", description:"Acuarela sobre papel compuesta por trazos solidos en su mayoria", price:"$5000"}, 
+    {id:2, name:"Cuchara", category:"Papel", img:"/assets/images/Cuchara.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$2000"},
+    {id:3, name:"Camino Otoñal", category:"Bastidor", img:"/assets/images/Camino_Otonial.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$6000"},
+    {id:4, name:"Flores Indigo", category:"Papel", img:"/assets/images/Flores_indigo.jpeg", description:"Acuarela sobre bastidor. Se utilizo mayormente pincel humedo.", price:"$1000"}
+
 ];
 
 function productPromise() {
