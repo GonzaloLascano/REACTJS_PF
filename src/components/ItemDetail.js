@@ -3,7 +3,7 @@ import ItemListCounter from "./ItemListCounter"
 import { Link } from 'react-router-dom';
 
 function ItemDetail (props) {
-    const [onCart, setOnCart] = useState(0); /* estado en el cual se almacena lo que se agrego al carrito en itemlistcounter */
+    const [onCart, setOnCart] = useState(0);
 
     function onAdd(amount) {
       setOnCart(amount);
