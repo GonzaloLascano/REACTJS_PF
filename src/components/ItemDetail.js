@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import ItemListCounter from "./ItemListCounter"
 import { Link } from 'react-router-dom';
+import useCartContext from "./CartContext";
 
 function ItemDetail (props) {
+    const { addItem, removeItem } = useCartContext();
     const [onCart, setOnCart] = useState(0); /* estado en el cual se almacena lo que se agrego al carrito en itemlistcounter */
 
     function onAdd(amount) {
       setOnCart(amount);
+      addItem(props, amount);
       console.log("felicidades! agregaste " + amount + " producto/s a tu carrito");
     }
     
@@ -30,7 +33,7 @@ function ItemDetail (props) {
               <p>{props.description}</p>
               <h3 className="my-3">Detalles de compra</h3>
 
-              {onCart? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
+              {onCart? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill" onClick={() => {removeItem(props)}}>Terminar Compra!</Link> /* la funcion removeItem esta aca solamente de prueba */
               :
               <ItemListCounter stock={props.stock} initial={props.initial} price={props.price} onAdd={onAdd}/>
               }
