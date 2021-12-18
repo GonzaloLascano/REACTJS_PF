@@ -36,11 +36,6 @@ function ItemListContainer() {
         loadItems.then(function(promise_result) { 
             setItems(promise_result)
         })
-        .finally(
-            function() {
-                console.log("Promesa cumplida exitosamente.");
-            }
-        )
     },[categoryId])
 
     return(
