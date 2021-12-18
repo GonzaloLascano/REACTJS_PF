@@ -4,7 +4,7 @@ const CartContext = createContext();
 const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({children}) => {
-    const [itemsCart, setItemsCart] = useState([/* aca deberia ir algo */]);
+    const [itemsCart, setItemsCart] = useState([]);
 
     const getAmountCart = () => {
         return itemsCart.reduce((total, item) => {
