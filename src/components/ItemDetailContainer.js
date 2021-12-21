@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router";
+import {db} from '../service/firebase'/* !! */
+import { collection, getDocs} from "firebase/firestore";
 
 const STORED_ITEMS = [
     {id:1, name:"Rompiente", author:"Admigual", img:"/assets/images/Rompiente.jpeg", description:"Acuarela sobre papel compuesta por trazos solidos en su mayoria.", stock:4, initial:1, price:"$5000"}, 
