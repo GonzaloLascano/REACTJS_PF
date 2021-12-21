@@ -33,7 +33,7 @@ function ItemDetail (props) {
               <p>{props.description}</p>
               <h3 className="my-3">Detalles de compra</h3>
 
-              {onCart? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill" onClick={() => {removeItem(props)}}>Terminar Compra!</Link> /* la funcion removeItem esta aca solamente de prueba */
+              {onCart? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
               :
               <ItemListCounter stock={props.stock} initial={props.initial} price={props.price} onAdd={onAdd}/>
               }

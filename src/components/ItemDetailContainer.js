@@ -26,7 +26,7 @@ function DetailPromise(idReq) {
 /* componente */
 
 function ItemDetailContainer() {
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState(null);
     const { id } = useParams();
 
     useEffect(() => {
@@ -42,22 +42,31 @@ function ItemDetailContainer() {
     },[id]);
 
     return(
-        <ItemDetail
-        key={item.id}
-        id={item.id}
-        name={item.name}
-        author={item.author}
-        description={item.description}
-        img={item.img}
-        stock={item.stock}
-        initial={item.initial}
-        price={item.price}/>
+        <>
+            {item ?
+            <ItemDetail
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            author={item.author}
+            description={item.description}
+            img={item.img}
+            stock={item.stock}
+            initial={item.initial}
+            price={item.price}/> 
+            :
+            <h3 className="m-5 d-flex">
+                <div className="spinner-grow text-success mx-3" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+                Cargando Items!
+                <div className="spinner-grow text-success mx-3" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </h3>
+            }
+        </>
     );
 }
-
-/* NOTAS ENTREGA 4/12/21: Acabo de terminar el desafio. Tratando de despejar algunas dudas: Siguiendo un poco la guia que hay en slack,
-react me tiraba error cuando ponia "null" como parametro en el useState y dejaba los brackets "[]" Antes del cierre de useEffect(). 
-No tengo del todo claro por que, despues de probar 20 cosas al sacar ambas cosas (reemplazar el null por brackets en useState y eliminando 
-los brackets en useEffect todo empezo a funcionar) */
 
 export default ItemDetailContainer
