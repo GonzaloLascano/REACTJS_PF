@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import useCartContext from "./CartContext";
 
 function ItemDetail (props) {
-    const { addItem, removeItem } = useCartContext();
+    const { addItem, isInCart, removeItem } = useCartContext();
     const [onCart, setOnCart] = useState(0); /* estado en el cual se almacena lo que se agrego al carrito en itemlistcounter */
 
     function onAdd(amount) {
@@ -14,7 +14,7 @@ function ItemDetail (props) {
     }
     
     return(
-        <div className="container text-start border shadow m-3 pb-3">
+        <div className="container text-start border shadow mt-3 mx-auto pb-3">
         
           {/* <!-- Portfolio Item Heading --> */}
           <h1 className="my-4">{props.name}
@@ -33,7 +33,7 @@ function ItemDetail (props) {
               <p>{props.description}</p>
               <h3 className="my-3">Detalles de compra</h3>
 
-              {onCart? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
+              {isInCart(props.id)? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
               :
               <ItemListCounter stock={props.stock} initial={props.initial} price={props.price} onAdd={onAdd}/>
               }

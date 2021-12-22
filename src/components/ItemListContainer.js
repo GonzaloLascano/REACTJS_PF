@@ -27,7 +27,7 @@ function productPromise(categoryId) {
 
 function ItemListContainer() {
     
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(null);
     const { categoryId } = useParams();
 
     useEffect(() => {
@@ -42,7 +42,13 @@ function ItemListContainer() {
         <div className="pt-5 itemListContainer">
             <h1>Bienvenidos!</h1>
             <p>Aqui podras ver una lista de nuestros productos disponibles</p>
-            <ItemList items = {items}/>
+            {items? 
+            <ItemList items = {items}/> 
+            : 
+            <div className="spinner-grow text-success m-auto" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+            }
         </div>
     )
 }

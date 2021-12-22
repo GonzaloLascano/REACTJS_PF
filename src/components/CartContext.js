@@ -44,7 +44,7 @@ export const CartContextProvider = ({children}) =>{
     }/* prueba individual de vaciamiento de carrito */
 
     return (
-        <CartContext.Provider value={{itemsCart, addItem, removeItem, getAmountCart, clearCart}}> {/* aca en VALUE hay que poner un value con todo lo que va a proveer ese contexto. objetos arrays funciones etc */}
+        <CartContext.Provider value={{itemsCart, addItem, removeItem, getAmountCart, clearCart, isInCart}}> {/* aca en VALUE hay que poner un value con todo lo que va a proveer ese contexto. objetos arrays funciones etc */}
             {children}
         </CartContext.Provider>
     )
