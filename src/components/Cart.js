@@ -12,7 +12,23 @@ function Cart (){
         return itemsCart.reduce((total, cartItem) =>{
             return (total + cartItem.amount * cartItem.price);
         },0);
-    } 
+    }
+    const sendOrder = () => {
+      const order = {
+        buyer:{name: "Gonzalo", phone: "5491111", email: "gonzakapoforever@unmail.com"},
+        items:itemsCart,
+        total: cartPrice()
+      }
+
+      addDoc(collection(db,'orders'),order).then(({ id }) => {
+        console.log(id)
+        alert('gracias por tu compra!');
+      });
+
+      setTimeout(() => {
+        clearCart()
+      }, 1000)
+    }
 
     if (itemsCart.length === 0){
         return(
@@ -103,7 +119,7 @@ function Cart (){
                               <h5>$ {cartPrice()}</h5>
                             </div>
           
-                            <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Pagar</button>
+                            <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={sendOrder}>Almacenar Orden</button>
           
                           </div>
                         </div>
