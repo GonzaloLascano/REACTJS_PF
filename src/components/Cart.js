@@ -1,33 +1,66 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import useCartContext from './CartContext';
 import CartListItem from './CartItem'
-import { db } from '..service/firebase.js'
-import {addDoc, collection} from 'firebase/firestore';
+import { db } from '../service/firebase'
+import {addDoc, collection, doc, writeBatch, Timestamp, getDoc, DocumentSnapshot} from 'firebase/firestore';
 
 function Cart (){
     const pathGalery = '/'
     const { itemsCart, clearCart, getAmountCart, removeItem } = useCartContext();
+    const [buyer, setBuyer] = useState({
+      name: '',
+      email: '',
+      phone: ''
+    })
+
     const cartPrice = () => {
         return itemsCart.reduce((total, cartItem) =>{
             return (total + cartItem.amount * cartItem.price);
         },0);
     }
+    
+    const handleChange = (e) => {
+      const name = e.target.name;
+      const value = e.target.value;
+      setBuyer(values => ({...values, [name]: value}));
+    }
+    
     const sendOrder = () => {
       const order = {
-        buyer:{name: "Gonzalo", phone: "5491111", email: "gonzakapoforever@unmail.com"},
-        items:itemsCart,
+        buyer:{name: buyer.name, phone: buyer.phone, email: buyer.email},
+        items: itemsCart,
+        time: Timestamp.fromDate(new Date()),
         total: cartPrice()
       }
 
-      addDoc(collection(db,'orders'),order).then(({ id }) => {
-        console.log(id)
-        alert('gracias por tu compra!');
-      });
+      const batch = writeBatch(db);
+      const outOfStock = []
 
-      setTimeout(() => {
-        clearCart()
-      }, 1000)
+      order.items.forEach((prod) => {
+        getDoc(doc(db, 'items', prod.id)).then((documentSnapshot) => {
+          if (documentSnapshot.data().stock >= prod.amount) {
+            batch.update(doc(db,'items', documentSnapshot.id), {
+              stock: documentSnapshot.data().stock - prod.amount
+            })
+          }
+          else {
+            outOfStock.push({id: documentSnapshot.id, ...documentSnapshot.data()})
+          }
+        })
+      })
+
+      if (outOfStock.length === 0) {
+        addDoc(collection(db,'orders'), order).then(({id}) => {
+          batch.commit().then(() => {
+            console.log('Se ha generado la orden: ' + id)
+            setTimeout(() => {
+              alert(`Orden: ${id} creada! Gracias por su compra!`)
+              clearCart()
+            }, 1000)
+          })
+        })
+      }
     }
 
     if (itemsCart.length === 0){
@@ -80,7 +113,7 @@ function Cart (){
 
                             {/* <!-- /item carro ------------------------------------------ --> */}
           
-                            <div className="pt-5 d-flex justify-content-space-around">
+                            <div className="pt-5 d-flex justify-content-around">
                               <h6 className="mb-0"><Link to="/" className="text-body"><i className="fas fa-long-arrow-alt-left me-2"></i>Back to shop</Link></h6>
                               <div><i onClick={clearCart} className="fas fa-trash-alt opacity-50" alt="Vaciaro Carrito"></i> <small>vaciar carrito</small></div>
                             </div>
@@ -118,8 +151,21 @@ function Cart (){
                               <h5 className="text-uppercase">Precio Total</h5>
                               <h5>$ {cartPrice()}</h5>
                             </div>
+
+                            <div className="form-floating mb-3">
+                              <input type="text" name="name" className="form-control" id="floatingInput" placeholder="Nombre del Cliente" onChange={handleChange}/>
+                              <label htmlFor="floatingInput">Nombre del Cliente</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input type="text" name="phone" className="form-control" id="floatingInput" placeholder="Telefono del Cliente" onChange={handleChange}/>
+                              <label htmlFor="floatingInput" >Telefono del Cliente</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input type="email" name="email" className="form-control" id="floatingInput" placeholder="Email del Cliente" onChange={handleChange}/>
+                              <label htmlFor="floatingInput" onChange={(e) => setBuyer({email: e.target.value})}>Email del Cliente</label>
+                            </div>
           
-                            <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={sendOrder}>Almacenar Orden</button>
+                            <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={sendOrder}>Crear Orden</button>
           
                           </div>
                         </div>
