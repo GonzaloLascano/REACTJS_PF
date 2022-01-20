@@ -5,16 +5,6 @@ import { useParams } from "react-router";
 import {db} from '../service/firebase'/* !! */
 import { getDoc, doc} from "firebase/firestore";
 
-function DetailPromise(idReq) {
-    return new Promise ((resolve, reject) =>{
-        setTimeout(function() {
-            const itemRequested = STORED_ITEMS.find((element) => {
-                return element.id === idReq
-            });
-            itemRequested ? resolve(itemRequested) : reject(console.log("No se encontro el Articulo."));
-            },2000);
-    });
-}
 
 /* componente */
 

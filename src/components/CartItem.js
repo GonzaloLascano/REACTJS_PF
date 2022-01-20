@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import useCartContext from "./CartContext";
 
 function CartListItem (props) {
-    const { removeItem } = useCartContext;
     
     return(
         <>

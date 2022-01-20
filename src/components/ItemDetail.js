@@ -1,14 +1,11 @@
-import React, { useState } from "react";
 import ItemListCounter from "./ItemListCounter"
 import { Link } from 'react-router-dom';
 import useCartContext from "./CartContext";
 
 function ItemDetail (props) {
-    const { addItem, isInCart, removeItem } = useCartContext();
-    const [onCart, setOnCart] = useState(0); /* estado en el cual se almacena lo que se agrego al carrito en itemlistcounter */
+    const { addItem, isInCart } = useCartContext();
 
     function onAdd(amount) {
-      setOnCart(amount);
       addItem(props, amount);
       console.log("felicidades! agregaste " + amount + " producto/s a tu carrito");
     }

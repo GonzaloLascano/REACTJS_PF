@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import useCartContext from './CartContext';
 import CartListItem from './CartItem'
 import { db } from '../service/firebase'
-import {addDoc, collection, doc, writeBatch, Timestamp, getDoc, DocumentSnapshot} from 'firebase/firestore';
+import {addDoc, collection, doc, writeBatch, Timestamp, getDoc} from 'firebase/firestore';
 
 function Cart (){
     const pathGalery = '/'
