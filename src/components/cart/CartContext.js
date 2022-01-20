@@ -3,7 +3,7 @@ import React, {useContext, useState, createContext} from "react";
 const CartContext = createContext();
 const useCartContext = () => useContext(CartContext);
 
-export const CartContextProvider = ({children}) =>{
+export const CartContextProvider = ({children}) => {
 
     const [itemsCart, setItemsCart] = useState([]); /* en este estado vamos a tener un array con los objetos del carrito. Estos se componen de dos elementos: un Item (el producto en si) y una Cantidad (a ser comprada) */
    

@@ -1,6 +1,6 @@
 import ItemListCounter from "./ItemListCounter"
 import { Link } from 'react-router-dom';
-import useCartContext from "./CartContext";
+import useCartContext from "../cart/CartContext";
 
 function ItemDetail (props) {
     const { addItem, isInCart } = useCartContext();

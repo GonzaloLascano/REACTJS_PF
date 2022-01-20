@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import useCartContext from './CartContext';
 import CartListItem from './CartItem'
-import { db } from '../service/firebase'
+import { db } from '../../service/firebase'
 import {addDoc, collection, doc, writeBatch, Timestamp, getDoc} from 'firebase/firestore';
 
 function Cart (){
@@ -133,17 +133,6 @@ function Cart (){
                               <h5>$ {cartPrice()}</h5>
                             </div>
                             
-          
-                            {/* <h5 className="text-uppercase mb-3">Envío</h5>
-          
-                            <div className="mb-4 pb-2">
-                              <select className="select">
-                                <option value="1">Standard-Delivery- $5.00</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                              </select>
-                            </div> ------------------ ENVIO (work in progress) ------------------*/}
           
                             <hr className="my-4"/>
           

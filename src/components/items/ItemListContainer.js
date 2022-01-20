@@ -2,23 +2,8 @@ import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from '../service/firebase'
+import { db } from '../../service/firebase'
 
-
-/* function productPromise(categoryId) {
-    
-    return new Promise ((resolve, reject) => {
-        let resolvedItems = [];
-
-        setTimeout(function(){
-            categoryId ?
-                resolvedItems = STORED_ITEMS.filter((product) => product.category === categoryId)
-                :
-                resolvedItems = [...STORED_ITEMS];
-            resolve(resolvedItems);
-        },2000);
-    });
-} */
 
 function ItemListContainer() {
     
@@ -33,12 +18,6 @@ function ItemListContainer() {
                     return {id: doc.id, ...doc.data()}
                 })
                 setItems(queryProducts);
-                /* if (categoryId){
-                    let categoryProducts = queryProducts.filter((product) => product.category === categoryId)
-                    setItems(categoryProducts)}
-                else{
-                setItems(queryProducts);
-                } */
             })
         }
         else {
