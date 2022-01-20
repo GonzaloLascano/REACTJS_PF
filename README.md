@@ -1,18 +1,45 @@
 # Proyecto Final para la cursada de REACT JS  de CODERHOUSE
 
-## Acerca del proyecto: La Glorieta
+## Acerca del proyecto: **La Glorieta**
 
-La Glorieta busca emular un proyecto de e-commerce de venta de pinturas obras de arte y decorativas.\
-Su principal objetivo es la venta de impresiones en bastidor papel o hasta esculturas u otro tipo de artefactos.\
+**La Glorieta** busca *emular un proyecto de e-commerce de venta de pinturas decorativas.*\
+Su principal objetivo es la venta de impresiones en bastidor, papel o hasta esculturas u otro tipo de artefactos o productos.\
 
 ### Datos tecnicos
 
-Hasta el momento, "la Glorieta" es una app web desarrollada en su totalidad dentro de ReactJS.
-Dependencias utilizadas hasta el momento:  
--"react-router-dom" V2.5 instalada por npm
--Bootstrap V5 referenciada por CDN en index.html
+Hasta el momento, **"la Glorieta"** es una app web desarrollada en su totalidad dentro de ReactJS.
+Dependencias utilizadas hasta el momento:
 
-vista previa actual del funcionamiento: https://vimeo.com/655614263/9902f59490
+- "Bootstrap V5" referenciada por CDN en index.html
+- "react": "17.0.2", instalado por npm
+- "react-router-dom": "5.2",
+- "firebase": "9.6.1", como simulador de base de datos
+
+Hasta el momento se testeó en navegadores: 
+- Google Chrome  
+- Microsoft Edge
+- Mozilla Firefox 
+
+### Instrucciones de Navegacion
+
+1. El home consta de un simple Navbar que va a permanecer siempre visible en todas las secciones y la lista de items que.\
+se encuentren registrados en la base de datos de **Firebase**.
+2. En el *NavBar* tendremos el nombre de la marca la cual hara de boton al home. Luego tendremos los 3 filtros de categorías de productos,\
+y por ultimo estara el *CartWidget*. El mismo estara transparente si no hay productos en el carrito y aparecera en negro cuando los haya.\
+Además podremos ver que cantidad total de productos tenemos. Si clickeamos en dicho numero el carrito se va a vaciar. Si clickeamos en el\
+icono de carrito cargaremos la pagina del *Cart* con el detalle de la compra.
+3. En el *ItemList* tendremos la lista de items cada uno con su tarjeta en la cual hay una breve descripcion y una invitacion a ver el detalle\
+donde se podra agregar al carrito.
+4. En el *ItemDetail* podremos ver la informacion del item correspondiente. Titulo, autor, formato, stock, precio etc. Ahi podremos elegir tambien \
+cantidad a comprar y agregarlo al carrito. Si el item esta en el carrito ya no se podran agregar mas y el contador sera reemplazado por el boton\
+para finalizar la compra que nos llevara al *Cart*.(podemos volver al Home o a los distintos productos filtrados desde los botones del *NavBar*)\
+5. En el *Cart* veremos una lista con los distintos *Items* que añadimos al *Cart* Podremos eliminar un item especifico, vaciar todo el carrito o\
+volver al Home para seguir comprando. Por otro lado, de la derecha. Tendremos el total del costo de nuestra compra y un formulario que generara la\
+orden de compra para el usuario. Una vez recibida nos mostrara un mensaje de agradecimiento y al confirmarlo se retornara al Home.\ 
+
+### vista previa actual del funcionamiento: https://vimeo.com/655614263/9902f59490
+----------------------------------------------------------------------------------------------------------
+    -React NPM default instructions-
 ----------------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
