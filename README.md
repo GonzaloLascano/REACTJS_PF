@@ -33,7 +33,8 @@ donde se podra agregar al carrito.
 4. En el *ItemDetail* podremos ver la informacion del item correspondiente. Titulo, autor, formato, stock, precio etc. Ahi podremos elegir tambien \
 cantidad a comprar y agregarlo al carrito. Si el item esta en el carrito ya no se podran agregar mas y el contador sera reemplazado por el boton\
 para finalizar la compra que nos llevara al *Cart*.(podemos volver al Home o a los distintos productos filtrados desde los botones del *NavBar*)\
-5. En el *Cart* veremos una lista con los distintos *Items* que añadimos al *Cart* Podremos eliminar un item especifico, vaciar todo el carrito o\
+5. En el *Cart* veremos una lista con los distintos *Items* que añadimos al *Cart* Podremos eliminar un item especifico o ver su detalle si hacemos\
+click en la imagen del mismo. Abajo de todo podremos vaciar todo el carrito, haciendo click en el tacho, o\
 volver al Home para seguir comprando. Por otro lado, de la derecha. Tendremos el total del costo de nuestra compra y un formulario que generara la\
 orden de compra para el usuario. Una vez recibida nos mostrara un mensaje de agradecimiento y al confirmarlo se retornara al Home.\ 
 
