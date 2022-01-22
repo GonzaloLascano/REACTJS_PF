@@ -4,6 +4,8 @@ import useCartContext from './CartContext';
 import CartListItem from './CartItem'
 import { db } from '../../service/firebase'
 import {addDoc, collection, doc, writeBatch, Timestamp, getDoc} from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Cart (){
     const pathGalery = '/'
@@ -53,11 +55,18 @@ function Cart (){
       if (outOfStock.length === 0) {
         addDoc(collection(db,'orders'), order).then(({id}) => {
           batch.commit().then(() => {
-            console.log('Se ha generado la orden: ' + id)
             setTimeout(() => {
-              alert(` Gracias ${buyer.name}! Su Orden: ${id} fue creada! Brevemente nos pondemos en contacto para concretarla!`)
+              toast.success(`Gracias ${buyer.name}! Su Orden: ${id} fue creada! Brevemente nos pondemos en connptacto para concretarla!`, {
+                position: "top-right",
+                autoClose: 7000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
               clearCart()
-            }, 1000)
+            }, 200)
           })
         })
       }

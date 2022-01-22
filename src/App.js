@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/items/ItemDetailContainer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Cart from './components/cart/Cart'
 import {CartContextProvider} from './components/cart/CartContext';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </CartContextProvider>
+      <ToastContainer/>
     </div>
   );
 }

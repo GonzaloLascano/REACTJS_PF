@@ -1,6 +1,8 @@
 # Proyecto Final para la cursada de REACT JS  de CODERHOUSE
+==============================================================
 
-## Acerca del proyecto: **La Glorieta**
+ Acerca del proyecto: **La Glorieta**
+-----------------------------------------------
 
 **La Glorieta** busca *emular un proyecto de e-commerce de venta de pinturas decorativas.*\
 Su principal objetivo es la venta de impresiones en bastidor, papel o hasta esculturas u otro tipo de artefactos o productos.\
@@ -11,6 +13,7 @@ Hasta el momento, **"la Glorieta"** es una app web desarrollada en su totalidad 
 Dependencias utilizadas hasta el momento:
 
 - "Bootstrap V5" referenciada por CDN en index.html
+- "React-Toastify"
 - "react": "17.0.2", instalado por npm
 - "react-router-dom": "5.2",
 - "firebase": "9.6.1", como simulador de base de datos
