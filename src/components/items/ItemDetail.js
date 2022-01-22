@@ -28,12 +28,27 @@ function ItemDetail (props) {
             <div className="col-md-4">
               <h3 className="my-3">Descripción</h3>
               <p>{props.description}</p>
+              <hr/>
               <h3 className="my-3">Detalles de compra</h3>
 
-              {isInCart(props.id)? <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
+              {props.stock === 0 ? 
+                <>
+                  <p className="text-secondary">
+                    Ups! parece que no hay mas stock de este articulo. Pronto lo vamos a reponer.                  
+                  </p>
+                  <Link to="/" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Volver a la galería</Link>
+                </>
+              :
+              isInCart(props.id)?
+              <>
+                <h5>Agregado! que preferis hacer ahora?</h5> 
+                <Link to="/cart" type="button" className="btn btn-light border-success shadow-sm rounded-pill">Terminar Compra!</Link>
+                <Link to="/" type="button" className="btn btn-light border-success shadow-sm rounded-pill mx-3">Volver a la galería</Link>
+              </>
               :
               <ItemListCounter stock={props.stock} initial={props.initial} price={props.price} onAdd={onAdd}/>
               }
+            
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ const ItemListCounter = (props) => {
                 <button type="button" className="btn btn-success rounded-pill" onClick={addCount}>+</button>
             </div>
         </div>
-        <button type="button" className="btn btn-outline-success w-100" onClick={() => {props.onAdd(amount)}}>Agregar al Carrito</button> {/* no entiendo por que hay que poner una funcion aca en lugar de simplemente poner onAdd directamente.*/}
+        <button type="button" className="btn btn-outline-success w-100" onClick={() => {props.onAdd(amount)}}>Agregar al Carrito</button> 
     </div>    
     );
 }

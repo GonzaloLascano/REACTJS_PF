@@ -11,7 +11,7 @@ const CartWidget = () => {
             <Link to="/cart"><img src="./assets/shopping-cart.png" alt="shopping cart" />
             </Link>
             {getAmountCart() > 0 &&
-                <p className="m-0 CartCount" onClick={clearCart}>{getAmountCart()}</p> /* la funcion clearCart esta aca solamente de prueba */
+                <p className="m-0 CartCount" onClick={clearCart}>{getAmountCart()}</p>
             }
         </div>
         

@@ -55,7 +55,7 @@ function Cart (){
           batch.commit().then(() => {
             console.log('Se ha generado la orden: ' + id)
             setTimeout(() => {
-              alert(`Orden: ${id} creada! Gracias por su compra!`)
+              alert(` Gracias ${buyer.name}! Su Orden: ${id} fue creada! Brevemente nos pondemos en contacto para concretarla!`)
               clearCart()
             }, 1000)
           })
@@ -154,7 +154,7 @@ function Cart (){
                               <label htmlFor="floatingInput" onChange={(e) => setBuyer({email: e.target.value})}>Email del Cliente</label>
                             </div>
           
-                            <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={sendOrder}>Crear Orden</button>
+                            <Link to="/" type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" onClick={sendOrder}>Crear Orden</Link>
           
                           </div>
                         </div>

@@ -13,7 +13,7 @@ const Item = (props) => {
             <div className="card-body">
               <h5 className="card-title">{props.name}</h5>
               <p className="card-text">{props.description}</p>
-              <p className="card-text"><small className="text-muted"> precio: {props.price}</small></p>
+              <p className="card-text"><small className="text-muted"> precio: ${props.price}</small></p>
               <Link to={pathItem} type="button" className="btn btn-success rounded-pill">
                 Ver detalle
               </Link>
