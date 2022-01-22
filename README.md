@@ -41,7 +41,8 @@ click en la imagen del mismo. Abajo de todo podremos vaciar todo el carrito, hac
 volver al Home para seguir comprando. Por otro lado, de la derecha. Tendremos el total del costo de nuestra compra y un formulario que generara la\
 orden de compra para el usuario. Una vez recibida nos mostrara un mensaje de agradecimiento y al confirmarlo se retornara al Home.\ 
 
-### vista previa actual del funcionamiento: https://vimeo.com/655614263/9902f59490
+### vista previa actual del funcionamiento: https://vimeo.com/669001867
+
 ----------------------------------------------------------------------------------------------------------
     -React NPM default instructions-
 ----------------------------------------------------------------------------------------------------------
